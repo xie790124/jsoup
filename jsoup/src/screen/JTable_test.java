@@ -21,9 +21,7 @@ public class JTable_test {
 	static Object[][] data=new Object[1][13];
 	ArrayList list;
 
-	public static void main(String argv[]) throws Exception {
-		new JTable_test();  
-	}
+	
 	public JTable_test() throws Exception {
 		//Setup JFrame
 		JFrame.setDefaultLookAndFeelDecorated(true);

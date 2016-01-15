@@ -113,14 +113,10 @@ public class JsoupCrawler {
 		 */       
 		Document doc = Jsoup.parse(url, 3000);
 
-
 		/**
 		 * 取回所center下所有的table
 		 */
-		Elements tables = doc.select("center");
-
-
-		System.out.println("------------------------印出 tables 所有內容--------------------------");    
+		Elements tables = doc.select("center>table");
 		/**
 		 * 為了有一致的方式來逐一取 得物件內部的資料，
 		 * 您可以讓一個Iterator於物件內部進行收集，
@@ -136,13 +132,11 @@ public class JsoupCrawler {
 		for(Element table : tables)
 		{
 			/**
-			 * 取得 html <td> 元素  內容
+			 * 取得 html <tr> 元素  內容
 			 */
-			iterator = table.select("tbody").iterator();           
+			iterator = table.select("tr").iterator();           
 			while(iterator.hasNext()){
-				
 				html內容[i]="<html>" + iterator.next().toString() + "</html>" ;
-				System.out.println(i+"\ndata" + html內容[i]);
 				i++;
 			}
 		}
